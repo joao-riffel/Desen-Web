@@ -1,0 +1,27 @@
+p{ 
+    color: red;
+}
+
+.note{
+
+    font-size: 20px;
+
+}
+
+#id-selector-demo{
+
+    color: green;
+
+}
+
+.note[value="4"]{
+
+    color: blue;
+
+}
+
+.note[value="5"]{
+
+    text-align: center;
+
+}
