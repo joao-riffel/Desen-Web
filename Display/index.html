@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Displays</title>
+</head>
+<body>
+    
+    <h2>1. Display: block</h2>
+    <p>Elementos 'block' ocupam toda a largura e sempre forçam uma quebra de linha, mesmo que haja espaço sobrando ao lado.</p>
+    <div>
+        <!--Três caixas bloco cada uma com sua própria linha-->
+        <div class="caixa bloco">Caixa Bloco 1</div>
+        <div class="caixa bloco">Caixa Bloco 2</div>
+        <div class="caixa bloco">Caixa Bloco 3</div>
+    </div>
+
+
+    <h2>2. Display: inline</h2>
+    <p>Elementos 'inline' só ocupam o espaço do seu conteúdo e ficam lado a lado. Eles ignram as definições de width e height.</p>
+    <div>
+        <!--Três caixas inline: todas ficaram na mesma linha-->
+        <span class="caixa inline">Inline A</span>
+        <span class="caixa inline">Inline B (Com conteúdo Maior)</span>
+        <span class="caixa inline">Inline C</span>
+    </div>
+
+
+    <h2>3. Display: inline-block</h2>
+    <p>Elementos 'inline-block' ficam lado a lado e respeitam as definições de width e height</p>
+    <div>
+        <!--Três caixas inline-block: ficam na mesma linha e mantém o tamanho definido-->
+        <div class="caixa inline-block">Inline-Block I</div>
+        <div class="caixa inline-block">Inline-Block II</div>
+        <div class="caixa inline-block">Inline-Block III</div>
+    </div>
+
+</body>
+</html>
