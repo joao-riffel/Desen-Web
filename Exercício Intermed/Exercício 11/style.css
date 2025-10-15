@@ -1,0 +1,27 @@
+body {
+
+    color: blueviolet;
+
+}
+
+body > div > p {
+    color: firebrick;
+}
+
+.list li {
+    color: blue;
+}
+
+li.done {
+    color: seagreen;
+}
+
+ul p {
+    color: black;
+    font-size: 0.5rem;
+}
+
+body p{
+    color: black;
+}
+
