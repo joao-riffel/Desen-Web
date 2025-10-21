@@ -1,0 +1,22 @@
+body {
+
+    background-color: antiquewhite;
+    text-align: center;
+    color: black;
+    font-family: Libre Baskerville;
+    font-weight: 900;
+
+}
+
+h1{
+    font-size: 2rem;
+}
+
+
+
+img {
+
+    width: 50%;
+    border: 10px solid black;
+
+}
