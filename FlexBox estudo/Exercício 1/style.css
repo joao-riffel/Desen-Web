@@ -1,0 +1,17 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    background-color: gold;
+    padding: 10px;
+    align-items: left;
+    justify-content: flex-start;
+
+}
+
+.navegacao {
+    flex: 1;
+
+    text-align: center;
+}
