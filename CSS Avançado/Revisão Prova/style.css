@@ -1,0 +1,54 @@
+body {
+    
+    background-color: rgb(63, 141, 95);
+
+}
+
+header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    border: 20px;
+}
+
+header h1{
+    color: rgb(63, 141, 95);
+    padding-left: 10px; 
+    font-size: 3rem;
+}
+
+@media (max-width: 480px) {
+        
+    header {
+        flex-direction: column;
+        
+    }
+}
+
+a {
+    text-decoration: none;
+    color: rgb(63, 141, 95);
+    font-weight: bold;
+}
+a:hover {
+    color: black;
+}
+
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    height: 200px;
+    border-radius: 10px;
+    border: ;
+}
+
+.banner a {
+    background-color:  rgba(63, 141, 96, 0.295);
+}
