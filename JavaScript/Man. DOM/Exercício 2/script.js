@@ -1,9 +1,9 @@
 const btnAparecer = document.getElementById("btnAparecer");
 const quadrado = document.getElementById("quadrado");
 
-btnAparecer.addEventListener("click", function (){
+btnAparecer.addEventListener("click", () => {
    
-    classList.toggle("quadrado");
+    quadrado.classList.toggle("hidden");
 
 
-})
+});
