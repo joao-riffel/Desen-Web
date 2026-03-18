@@ -24,6 +24,23 @@ async function buscarUsuario(req, res) {
 
 }
 
+async function contarUsuarios(req, res) {
+
+    try {
+
+        const total = await usuariosService.contarUsuarios(req.app.get("db"));
+
+        res.status(200).json({
+            total
+        });
+
+    }catch (erro) {
+        res.status(500).json ({
+            erro: "Não foi possívl contar os usuários"
+        });
+    }
+}
+
 async function criarUsuario(req, res) {
 
     try {
@@ -83,6 +100,7 @@ async function deletarUsuario(req, res) {
 module.exports = {
     listarUsuarios,
     buscarUsuario,
+    contarUsuarios,
     criarUsuario,
     atualizarUsuario,
     deletarUsuario

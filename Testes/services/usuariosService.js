@@ -21,6 +21,15 @@ async function buscarUsuarioPorId(id) {
 
 }
 
+async function contarUsuarios() {
+    const total = await pool.query (
+        "SELECT COUNT (*) FROM usuarios"
+    );
+
+    return Number(total.rows[0].count);
+
+}
+
 async function criarUsuario(nome, idade) {
 
     if (!nome || nome.trim() === "") {
@@ -71,6 +80,7 @@ async function deletarUsuario(id) {
 module.exports = {
     listarUsuarios,
     buscarUsuarioPorId,
+    contarUsuarios,
     criarUsuario,
     atualizarUsuario,
     deletarUsuario
