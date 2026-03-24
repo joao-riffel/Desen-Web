@@ -17,8 +17,27 @@ async function buscarUsuarioPorId(id) {
         [id]
     );
 
+    return resultado.rows;
+
+}
+
+async function buscarUsuarioPorIdade(idade) {
+
+    const resultado = await pool.query(
+        "SELECT * FROM usuarios WHERE idade >= $1", 
+        [idade]
+    );
+
     return resultado.rows[0];
 
+}
+
+async function ordenarUsuariosAlfabeto(){
+    const resultado = await pool.query(
+        "SELECT * FROM usuarios ORDER BY nome ASC"
+    );
+
+    return resultado.rows;
 }
 
 async function contarUsuarios() {
@@ -80,6 +99,8 @@ async function deletarUsuario(id) {
 module.exports = {
     listarUsuarios,
     buscarUsuarioPorId,
+    buscarUsuarioPorIdade,
+    ordenarUsuariosAlfabeto,
     contarUsuarios,
     criarUsuario,
     atualizarUsuario,

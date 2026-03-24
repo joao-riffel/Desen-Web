@@ -9,6 +9,10 @@ router.get ("/total", usuariosController.contarUsuarios);
 
 router.get("/:id", usuariosController.buscarUsuario);
 
+router.get("/:idade", usuariosController.buscarUsuarioPorIdade);
+
+router.get("/ordenar", usuariosController.ordenarUsuariosAlfabeto);
+
 router.post("/", usuariosController.criarUsuario);
 
 router.put("/:id", usuariosController.atualizarUsuario);

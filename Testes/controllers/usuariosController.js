@@ -24,6 +24,43 @@ async function buscarUsuario(req, res) {
 
 }
 
+async function buscarUsuarioPorIdade(req, res) {
+    const idade = Number(req.params.idade);
+  
+    if (isNaN(idade) || idade < 0) {
+      return res.status(400).json({
+        erro: "Idade inválida"
+      });
+    }
+  
+    const usuarios = await usuariosService.buscarUsuarioPorIdade(idade);
+  
+    if (usuarios.length === 0) {
+      return res.status(404).json({
+        erro: "Nenhum usuário encontrado"
+      });
+    }
+  
+    res.json(usuarios);
+  }
+
+  async function ordenarUsuariosAlfabeto(req,res) {
+    try {
+
+        const usuarios = await usuariosService.ordenaruUsuariosAlfabeto(req.app.get("db"));
+
+        res.status(200).json([
+            usuarios
+        ]);
+
+    }catch (erro){
+        res.status(500).json({
+            erro:"Não foi possível ordenar os usuários alfabeticamente"
+        });
+    }
+  }
+
+
 async function contarUsuarios(req, res) {
 
     try {
@@ -97,9 +134,12 @@ async function deletarUsuario(req, res) {
 
 }
 
+
 module.exports = {
     listarUsuarios,
     buscarUsuario,
+    buscarUsuarioPorIdade,
+    ordenarUsuariosAlfabeto,
     contarUsuarios,
     criarUsuario,
     atualizarUsuario,
