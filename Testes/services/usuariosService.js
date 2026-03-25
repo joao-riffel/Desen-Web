@@ -28,7 +28,7 @@ async function buscarUsuarioPorIdade(idade) {
         [idade]
     );
 
-    return resultado.rows[0];
+    return resultado.rows;
 
 }
 
@@ -49,7 +49,7 @@ async function contarUsuarios() {
 
 }
 
-async function criarUsuario(nome, idade) {
+async function criarUsuario(nome, idade, email) {
 
     if (!nome || nome.trim() === "") {
         throw new Error("Nome é obrigatório");
@@ -57,11 +57,11 @@ async function criarUsuario(nome, idade) {
 
     const resultado = await pool.query(
         `
-        INSERT INTO usuarios (nome, idade)
-        VALUES ($1, $2)
+        INSERT INTO usuarios (nome, idade, email)
+        VALUES ($1, $2, $3)
         RETURNING *
         `,
-        [nome, idade]
+        [nome, idade, email]
     );
 
     return resultado.rows[0];
@@ -74,7 +74,8 @@ async function atualizarUsuario(id, nome, idade) {
         `
         UPDATE usuarios
         SET nome = COALESCE($1, nome),
-            idade = COALESCE($2, idade)
+            idade = COALESCE($2, idade),
+            email = COALESCE($3, email)
         WHERE id = $3
         RETURNING *
         `,
@@ -88,7 +89,7 @@ async function atualizarUsuario(id, nome, idade) {
 async function deletarUsuario(id) {
 
     const resultado = await pool.query(
-        "DELETE FROM usuarios WHERE id = $1",
+        "DELETE * FROM usuarios WHERE id = $1",
         [id]
     );
 

@@ -40,7 +40,13 @@ function renderizarUsuarios(usuarios) {
 
   usuarios.forEach(usuario => {
     const li = document.createElement("li");
-    li.textContent = `${usuario.nome} - ${usuario.idade} anos`;
+    const botao = document.createElement("button");
+
+    botao.textContent = "Excluir";
+    botao.addEventListener("click", () => deletarUsuario(usuario.id));
+
+    li.textContent = `${usuario.nome} - ${usuario.idade} anos - ${usuario.email}`;
+    li.appendChild(botao);
     lista.appendChild(li);
   });
 }
@@ -64,5 +70,32 @@ async function carregarTotal() {
   }
 }
 
-// Carregar automaticamente
+
+async function deletarUsuario(id){
+
+  const confirmar = confirm("Tem certeza que deseja excluir este usuário?");
+
+  if (!confirmar) return;
+
+  try{
+
+    const resposta = await fetch(`/usuarios/${id}`, {
+      method : "DELETE"
+    });
+
+    if (!resposta.ok){
+      const texto = await resposta.text();
+      console.log("Resposta do servidor:", texto);
+      throw new Error("Erro ao deletar o usuário");
+    }
+
+  }catch(erro){
+
+    alert(erro.message);
+    console.error(erro);
+
+  }
+
+}
+
 carregarUsuarios();

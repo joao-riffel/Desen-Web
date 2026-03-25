@@ -6,7 +6,6 @@ const usuariosRoutes = require("./routes/usuarios");
 app.use(express.json());
 app.use(express.static("public"));
 
-// Prefixo da API
 app.use("/usuarios", usuariosRoutes);
 
 app.listen(3000, () => {
